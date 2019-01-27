@@ -1,0 +1,186 @@
+@mixin button-style {
+    width:200px;
+    background-color: $buttoncolor;
+    color:white;
+    text-decoration: none;
+    text-align: center;
+    padding:10px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    border:0;
+}
+@mixin heading-style {
+    text-align: right;
+    text-transform: uppercase;
+    margin: 0;
+    color: $headingcolor;
+}
+body{
+    font:$fontstyle;
+    margin:0;
+    padding:0;
+    background-color: $backcolor;
+    header{
+        background: $headerphoto no-repeat top/cover;
+        width:100%;
+        height:100vh;
+        .top-wrapper{
+            display:flex;
+            justify-content: space-between;
+            .logo{
+                width:20%;
+                img{
+                    width:90%;
+                }
+            }
+            nav{
+                a{
+                    color:$headercolor;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    align-items: center;
+                    padding:20px 120px;
+                    display:inline-block;
+                }
+                a:nth-child(2) {
+                    border-left: 2px solid $bordercolor;
+                    border-right: 2px solid $bordercolor;
+                }
+            }   
+        }
+        section{
+            position:absolute;
+            top:50%;
+            display:block;
+            width:100%;
+            h1{
+                text-align: center;
+                margin-left:auto;
+                margin-right: auto;
+                text-transform: uppercase;
+                color: $headercolor;
+            }
+            a{
+                display:inherit;
+                text-align:center;
+                margin-left:auto;
+                margin-right: auto;
+                @include button-style;
+            }
+        }
+    }
+    main{
+        width:70%;
+        margin-left:auto;
+        margin-right: auto;        
+        div.toolbar{
+            display:flex;
+            justify-content: flex-end;
+            margin:20px 5px;
+            input {
+                padding: 14px 46px 14px 20px;
+                background-color: transparent;
+                border: 1px solid $bordercolor;
+            }
+        }
+        .post-list{
+            h1{
+                @include heading-style;
+            }
+            h3{
+                color: $artheadcolor;
+                text-transform: uppercase;
+            }
+            article{
+                display:flex;
+                margin-bottom: 15px;
+                background-color: $articlebackground;
+                padding:10px;
+                color: $maintextcolor;
+                    div{
+                        padding: 5px;
+                        .btn {
+                            @include button-style;
+                            float: right;
+                        }
+                        div{
+                            .post-description{
+                                color:$postdesccolor;
+                                border-bottom: 1px solid;
+                                border-color:  $bordercolor;
+                                padding: 0;
+                                font-size: 12px;
+                                }
+                        }
+                    }
+            }
+        }
+        .about {
+            padding: 10px;
+            margin-top: 50px;
+            p {
+                color: $maintextcolor;
+            }
+            h1 {
+                @include heading-style;
+            }
+            img {
+                width: 100%;            
+            }
+        }
+        #contact {
+            margin-top: 50px;
+            h1, h4 {
+                @include heading-style;
+            }
+            form {
+                text-align: right;
+                margin-top: 30px;
+                label {
+                    margin: 0;
+                    color: $formtextcolor;
+                }
+                #name {
+                    width: 49%;
+                    float: left;
+                    text-align: right;
+                    margin-bottom: 15px; 
+                    input {
+                        width: 100%;
+                        height: 50px;
+                        background-color: transparent;
+                        border: 1px solid $bordercolor;
+                    }
+                }
+                #contact-email {
+                    width:49%;
+                    float: right;
+                    margin-bottom: 15px;
+                    input {
+                        width: 100%;
+                        height: 50px;
+                        background-color: transparent;
+                        border: 1px solid $bordercolor;
+                    }
+                }
+                #question {
+                    textarea {
+                        width: 100%;
+                        background-color: transparent;
+                        border: 1px solid $bordercolor;
+                    }
+                }
+                button {
+                    @include button-style;
+                }
+            }
+        }
+    }
+    footer {
+        padding: 0 0 15px 15px;
+        span {
+          font-size: 12px;
+          color: $maintextcolor;
+        }
+      }
+}
